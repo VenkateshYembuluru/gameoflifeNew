@@ -32,14 +32,5 @@ pipeline{
            archiveArtifacts  archive: 'gameoflife-web/target/*.war', onlyIfSuccessful: true
         }
     }
-    parameters {
-        string(name: 'learning' )
-    }
-    stages {
-        stage('test') {
-            steps {
-                echo '${params.learning} is the parameter'
-            }
-        }
-    }
+
 }
