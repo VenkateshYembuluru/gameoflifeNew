@@ -1,7 +1,7 @@
 /** Scripted Pipeline script exmaple**/
 node('MAVEN'){
     stage('SCM'){
-        git 'https://github.com/VenkateshYembuluru/springpetclinicNew.git'
+        git 'https://github.com/VenkateshYembuluru/gameoflifeNew.git'
         
         if (env.BRANCH_NAME == 'master') {
             echo 'I only execute on the master branch'
@@ -13,7 +13,8 @@ node('MAVEN'){
         sh 'mvn clean package'
     }
     stage('archival'){
-        archive 'gameoflife-web/target/*.war'
+        archive 'gameoflife-web/target/*.war',
+        test reporte 'target/surefire-reports/*.xml'
     }
 }
 /**Declarative pipeline exmaple**/
