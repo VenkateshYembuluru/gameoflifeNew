@@ -13,8 +13,7 @@ node('MAVEN'){
         sh 'mvn clean package'
     }
     stage('archival'){
-        archive 'gameoflife-web/target/*.war',
-        test reporte 'target/surefire-reports/*.xml'
+        archive 'gameoflife-web/target/*.war'
     }
 }
 /**Declarative pipeline exmaple**/
