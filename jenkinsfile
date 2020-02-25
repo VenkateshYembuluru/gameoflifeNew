@@ -26,7 +26,7 @@ pipeline{
              git url: 'https://github.com/VenkateshYembuluru/gameoflifeNew.git', branch: 'master'
         }
         stage('BUILD'){
-            sh: 'mvn clean package', label: 'build'
+            sh script: 'mvn clean package', label: 'build'
         }
         stage('rchive the artifacts'){
            archiveArtifacts  archive: 'gameoflife-web/target/*.war', onlyIfSuccessful: true
