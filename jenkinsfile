@@ -38,5 +38,14 @@ pipeline{
             }
         }
     }
-
+    parameters {
+        string(name: 'learning' )
+    }
+    stages {
+        stage('test') {
+            steps {
+                echo '${params.learning} is the parameter'
+            }
+        }
+    }
 }
