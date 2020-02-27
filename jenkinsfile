@@ -22,7 +22,8 @@ pipeline{
             label 'MAVEN'
     }
     parameters {
-        string(name: 'branch' )
+        //string(name: 'branch' )
+        choice(name: 'branch', choices: ['master', 'test1', 'test2'], description: 'Select the branch')
     }
     stages{
         stage('SCM'){
