@@ -27,18 +27,18 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-                git url: 'https://github.com/VenkateshYembuluru/gameoflifeNew.git', branch: '${params.branch}'
+               // git url: 'https://github.com/VenkateshYembuluru/gameoflifeNew.git', branch: '${params.branch}'
                 echo '${params.branch} is the parameter'
             }
         }
         stage('BUILD'){
             steps{
-                sh script: 'mvn clean package', label: 'build'
+                //sh script: 'mvn clean package', label: 'build'
             }
         }
         stage('rchive the artifacts'){
             steps{
-                archiveArtifacts  artifacts: 'gameoflife-web/target/*.war', onlyIfSuccessful: true
+               // archiveArtifacts  artifacts: 'gameoflife-web/target/*.war', onlyIfSuccessful: true
             }
         }
     }
