@@ -27,7 +27,7 @@ pipeline{
     stages{
         stage('SCM'){
             steps{
-                git url: 'https://github.com/VenkateshYembuluru/gameoflifeNew.git', branch: 'master'
+                git url: 'https://github.com/VenkateshYembuluru/gameoflifeNew.git', branch: "${params.branch}"
                 echo "${params.branch} is the parameter"
             }
         }
