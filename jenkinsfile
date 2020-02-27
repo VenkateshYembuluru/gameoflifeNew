@@ -22,7 +22,7 @@ pipeline{
             label 'MAVEN'
     }
     parameters {
-        string(branch: 'master' )
+        string(name: 'branch' )
     }
     stages{
         stage('SCM'){
