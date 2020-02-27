@@ -19,7 +19,8 @@
 /**Declarative pipeline exmaple**/
 pipeline{
     agent{
-        lable 'MAVEN'
+            label 'MAVEN'
+        }
     }
     stages{
         stage('SCM'){
@@ -32,11 +33,11 @@ pipeline{
                 sh script: 'mvn clean package', label: 'build'
             }
         }
-        stage('rchive the artifacts'){
+        /*stage('rchive the artifacts'){
             steps{
                 archiveArtifacts  archive: 'gameoflife-web/target/*.war', onlyIfSuccessful: true
             }
-        }
+        }*/
     }
 
 }
