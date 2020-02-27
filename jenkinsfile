@@ -32,11 +32,11 @@ pipeline{
                 sh script: 'mvn clean package', label: 'build'
             }
         }
-        /*stage('rchive the artifacts'){
+        stage('rchive the artifacts'){
             steps{
-                archiveArtifacts  archive: 'gameoflife-web/target/*.war', onlyIfSuccessful: true
+                archiveArtifacts  artifacts: 'gameoflife-web/target/*.war', onlyIfSuccessful: true
             }
-        }*/
+        }
     }
 
 }
