@@ -20,11 +20,15 @@
 pipeline{
     agent{
             label 'MAVEN'
-        }
+    }
+    parameters {
+        string(branch: 'master' )
+    }
     stages{
         stage('SCM'){
             steps{
-                git url: 'https://github.com/VenkateshYembuluru/gameoflifeNew.git', branch: 'master'
+                git url: 'https://github.com/VenkateshYembuluru/gameoflifeNew.git', branch: '${params.branch}'
+                echo '${params.branch} is the parameter'
             }
         }
         stage('BUILD'){
@@ -35,16 +39,6 @@ pipeline{
         stage('rchive the artifacts'){
             steps{
                 archiveArtifacts  artifacts: 'gameoflife-web/target/*.war', onlyIfSuccessful: true
-            }
-        }
-    }
-    parameters {
-        string(name: 'learning' )
-    }
-    stages {
-        stage('test') {
-            steps {
-                echo '${params.learning} is the parameter'
             }
         }
     }
